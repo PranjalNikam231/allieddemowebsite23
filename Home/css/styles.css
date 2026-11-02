@@ -1,0 +1,331 @@
+/* =========================================
+   1. PREMIUM DARK-MEDICAL COLOR PALETTE
+========================================= */
+:root {
+    /* Deep, Serious Backgrounds */
+    --bg-main: #f1f5f9;       /* Slate tinted off-white for body */
+    --bg-white: #ffffff;      /* Pure white for cards */
+    --bg-midnight: #0f172a;   /* Deep slate/navy for Hero & Footer */
+    --bg-slate: #1e293b;      /* Secondary dark UI elements */
+    
+    /* Authoritative Text Colors */
+    --text-dark: #0f172a;     /* Near black for headings */
+    --text-muted: #475569;    /* Medium slate for paragraphs */
+    --text-light: #f8fafc;    /* Off-white for text on dark backgrounds */
+    
+    /* Medical Accents */
+    --brand-blue: #1d4ed8;    /* Royal Blue for primary actions */
+    --brand-teal: #0f766e;    /* Deep Clinical Teal for trust/verification */
+    --brand-teal-light: #ccfbf1; /* Soft teal background for highlights */
+    
+    /* UI Elements */
+    --badge-bg: rgba(15, 118, 110, 0.2);
+    --badge-text: #2dd4bf;
+    --shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.15);
+    --border-subtle: #e2e8f0;
+}
+
+/* =========================================
+   2. GLOBAL RESETS
+========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', system-ui, sans-serif; color: var(--text-muted); background: var(--bg-main); line-height: 1.6; }
+a { text-decoration: none; }
+
+/* =========================================
+   3. DARK NAVIGATION BAR
+========================================= */
+.main-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 8%; background: var(--bg-midnight);
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-brand { font-size: 1.4rem; font-weight: 800; color: var(--text-light); display: flex; align-items: center; gap: 10px; }
+.brand-icon { background: var(--brand-teal); color: white; padding: 2px 8px; border-radius: 6px; font-size: 1.2rem; }
+
+.nav-menu { list-style: none; display: flex; gap: 32px; align-items: center; }
+.nav-menu a { color: #cbd5e1; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+.nav-menu a:hover, .nav-menu a.active { color: var(--bg-white); }
+
+/* Dropdown Menu (Light for contrast) */
+.dropdown-wrapper { position: relative; }
+.dropdown-menu {
+    position: absolute; top: 100%; left: 0; background: var(--bg-white);
+    min-width: 240px; border-radius: 8px; box-shadow: var(--shadow-lg);
+    opacity: 0; visibility: hidden; transition: all 0.2s ease; transform: translateY(10px);
+    border: 1px solid var(--border-subtle);
+}
+.dropdown-wrapper:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown-menu a { display: block; padding: 12px 20px; color: var(--text-dark); border-bottom: 1px solid var(--border-subtle); }
+.dropdown-menu a:hover { background: var(--bg-main); color: var(--brand-blue); }
+
+/* =========================================
+   4. BUTTONS
+========================================= */
+.btn-demo { background: var(--brand-teal); color: white !important; padding: 10px 24px; border-radius: 6px; font-weight: 600; transition: 0.3s; }
+.btn-demo:hover { background: #115e59; }
+
+.btn-primary { background: var(--brand-blue); color: white; padding: 14px 32px; border-radius: 6px; font-weight: 600; transition: 0.3s; display: inline-block; border: none; }
+.btn-primary:hover { background: #1e40af; box-shadow: var(--shadow-sm); }
+
+.btn-secondary { background: transparent; color: var(--text-light); padding: 14px 32px; border-radius: 6px; font-weight: 600; border: 2px solid var(--text-light); transition: 0.3s; display: inline-block; }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+.btn-pill { display: inline-block; background: var(--bg-slate); color: var(--bg-white); padding: 12px 30px; border-radius: 6px; font-weight: 600; transition: 0.3s ease; }
+.btn-pill:hover { background: var(--brand-blue); box-shadow: var(--shadow-sm); }
+
+/* =========================================
+   5. MIDNIGHT HERO SECTION
+========================================= */
+.hero-banner {
+    background: linear-gradient(135deg, var(--bg-midnight) 0%, var(--bg-slate) 100%);
+    padding: 90px 8% 60px; text-align: center; overflow: hidden;
+    position: relative;
+}
+
+/* Subtle grid overlay for tech feel */
+.hero-banner::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px; pointer-events: none;
+}
+
+.hero-content { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
+
+.trust-badge {
+    background: var(--badge-bg); color: var(--badge-text);
+    padding: 8px 18px; border-radius: 30px; font-size: 0.85rem; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 30px;
+    border: 1px solid rgba(45, 212, 191, 0.3); letter-spacing: 0.5px;
+}
+.trust-badge .dot { width: 8px; height: 8px; background: var(--badge-text); border-radius: 50%; box-shadow: 0 0 8px var(--badge-text); }
+
+.hero-content h1 { font-size: 3.8rem; color: var(--text-light); line-height: 1.15; margin-bottom: 24px; letter-spacing: -0.03em; font-weight: 800; }
+.text-gradient { color: #38bdf8; }
+.hero-content p { font-size: 1.2rem; color: #94a3b8; max-width: 650px; margin-bottom: 40px; }
+.hero-actions { display: flex; gap: 20px; justify-content: center; }
+
+/* Abstract Graphic Representation */
+.hero-graphic { margin-top: 60px; display: flex; justify-content: center; position: relative; z-index: 2; }
+.mockup-card { background: var(--bg-white); width: 600px; height: 250px; border-radius: 12px 12px 0 0; box-shadow: var(--shadow-lg); position: relative; }
+.mockup-header { background: var(--bg-main); height: 30px; border-radius: 12px 12px 0 0; margin: 10px; width: 100px; }
+.compliance-badge {
+    position: absolute; right: -20px; top: 40px; background: var(--bg-slate); color: var(--text-light);
+    padding: 15px 20px; border-radius: 8px; box-shadow: var(--shadow-lg);
+    display: flex; align-items: center; gap: 12px; text-align: left;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.check-icon { background: var(--brand-teal); color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; }
+
+/* =========================================
+   6. GLOBAL SECTION LAYOUTS
+========================================= */
+section { padding: 100px 8%; }
+.section-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin-inline: auto; }
+.section-header h2 { font-size: 2.5rem; color: var(--text-dark); margin-bottom: 15px; font-weight: 800; letter-spacing: -0.02em; }
+.section-header p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
+.header-underline { width: 60px; height: 5px; background: var(--brand-teal); margin: 20px auto 0; border-radius: 3px; }
+
+/* =========================================
+   7. PRODUCTS SECTION
+========================================= */
+.products-section { background: var(--bg-main); }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+.product-card {
+    background: var(--bg-white); padding: 40px 30px; border-radius: 12px;
+    text-align: center; transition: all 0.3s ease;
+    border: 1px solid var(--border-subtle); box-shadow: var(--shadow-sm);
+}
+.product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--brand-blue); }
+
+.card-icon-wrapper { display: flex; justify-content: center; margin-bottom: 25px; }
+.icon-circle {
+    width: 80px; height: 80px; background: var(--brand-teal-light); color: var(--brand-teal);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;
+}
+
+.product-card h3 { font-size: 1.4rem; color: var(--text-dark); margin-bottom: 15px; font-weight: 700; }
+.product-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; line-height: 1.7; }
+
+/* =========================================
+   8. WHY US SECTION
+========================================= */
+.why-us-section {
+    padding: 60px 8%;
+    background-color: #f8fafc;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 45px;
+  }
+
+  .section-header h2 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .header-underline {
+    width: 60px;
+    height: 4px;
+    background-color: #0f766e;
+    margin: 0 auto;
+    border-radius: 2px;
+  }
+
+  /* Grid layout for the 2 feature boxes */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .feature-card {
+    background: #ffffff;
+    padding: 40px 35px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #0f766e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(15, 118, 110, 0.1);
+  }
+
+  .feature-card h3 {
+    font-size: 1.4rem;
+    color: #0f172a;
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-weight: 700;
+  }
+
+  .feature-card p {
+    color: #475569;
+    line-height: 1.7;
+    font-size: 0.98rem;
+    margin: 0 0 20px 0;
+  }
+
+  /* Support Contacts styling inside the box */
+  .support-contacts {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .support-contacts strong {
+    display: block;
+    color: #0f172a;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .phone-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .phone-list a {
+    color: #0f766e;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    transition: color 0.2s ease;
+  }
+
+  .phone-list a:hover {
+    color: #115e59;
+    text-decoration: underline;
+  }
+
+  .phone-list a::before {
+    content: "📞";
+    font-size: 0.9rem;
+  }
+
+
+.feature-card { background: var(--bg-main); padding: 40px; border-radius: 12px; border: 1px solid var(--border-subtle); height: 100%; }
+.highlight-bg { background: var(--bg-slate); color: var(--text-light); }
+.highlight-bg p { color: #cbd5e1; }
+.highlight-bg h3 { color: var(--text-light); }
+
+.feature-card h3 { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 20px; font-weight: 700; }
+
+.support-contacts { margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border-subtle); }
+.support-contacts strong { color: var(--text-dark); display: block; margin-bottom: 10px; }
+.support-contacts ul { list-style: none; color: var(--brand-blue); font-weight: 600; }
+.support-contacts ul li { margin-bottom: 5px; }
+
+.center-graphic { display: flex; justify-content: center; align-items: center; }
+.graphic-circle {
+    width: 250px; height: 250px; background: var(--bg-main); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    border: 10px solid var(--brand-teal-light); color: var(--brand-teal); font-weight: 700;
+}
+
+/* =========================================
+   9. TESTIMONIALS SECTION
+========================================= */
+.testimonials-section { background: var(--bg-main); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+
+.testimonial-card {
+    background: var(--bg-white); padding: 40px; border-radius: 12px;
+    position: relative; border-left: 5px solid var(--brand-blue);
+    box-shadow: var(--shadow-sm);
+}
+
+.quote-mark { position: absolute; top: 20px; right: 30px; font-size: 5rem; color: var(--bg-main); font-family: serif; line-height: 1; }
+.review-text { font-size: 1.05rem; color: var(--text-dark); font-style: italic; margin-bottom: 30px; position: relative; z-index: 1; line-height: 1.8; }
+
+.client-info { display: flex; align-items: center; gap: 15px; }
+.client-avatar { width: 50px; height: 50px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; }
+
+.bg-teal { background: var(--brand-teal); }
+.bg-blue { background: var(--brand-blue); }
+
+.client-info h4 { color: var(--text-dark); font-size: 1rem; margin-bottom: 2px; font-weight: 700; }
+.client-info span { color: var(--text-muted); font-size: 0.85rem; }
+
+/* =========================================
+   10. GLOBAL FOOTER (Matches Midnight Hero)
+========================================= */
+.global-footer { background: var(--bg-midnight); color: var(--text-light); padding: 80px 8% 40px; font-family: 'Inter', sans-serif; border-top: 4px solid var(--brand-teal); }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; margin-bottom: 60px; }
+.footer-col h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 25px; padding-bottom: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-transform: uppercase; letter-spacing: 1px; }
+.footer-col p { color: #94a3b8; line-height: 1.8; font-size: 0.95rem; }
+.contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.icon-wrapper { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.1); color: var(--brand-teal); }
+.footer-copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #64748b; font-size: 0.85rem; }
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .center-graphic { order: -1; margin-bottom: 30px; }
+    .hero-banner { padding: 40px 5%; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .nav-menu { display: none; }
+}

@@ -1,0 +1,119 @@
+/* =========================================
+   1. PREMIUM DARK THEME VARIABLES
+========================================= */
+:root {
+    --bg-main: #f1f5f9;
+    --bg-white: #ffffff;
+    --bg-midnight: #0f172a;
+    --bg-slate: #1e293b;
+    
+    --text-dark: #0f172a;
+    --text-muted: #475569;
+    --text-light: #f8fafc;
+    
+    --brand-blue: #1d4ed8;
+    --brand-teal: #0f766e;
+    --brand-teal-light: #ccfbf1;
+    
+    --badge-bg: rgba(15, 118, 110, 0.2);
+    --badge-text: #2dd4bf;
+    --shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.15);
+    --border-subtle: #e2e8f0;
+}
+
+/* Base Resets & Typography */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', system-ui, sans-serif; color: var(--text-muted); background: var(--bg-main); line-height: 1.6; overflow-x: hidden; }
+a { text-decoration: none; }
+
+/* =========================================
+   2. KEYFRAME ANIMATIONS
+========================================= */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+.animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+.animate-slide-up { opacity: 0; animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+.delay-4 { animation-delay: 0.55s; }
+
+/* =========================================
+   3. NAVIGATION 
+========================================= */
+.main-nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 8%; background: var(--bg-midnight); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100; }
+.nav-brand { font-size: 1.4rem; font-weight: 800; color: var(--text-light); display: flex; align-items: center; gap: 10px; }
+.brand-icon { background: var(--brand-teal); color: white; padding: 2px 8px; border-radius: 6px; font-size: 1.2rem; }
+.nav-menu { list-style: none; display: flex; gap: 32px; align-items: center; }
+.nav-menu a { color: #cbd5e1; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+.nav-menu a:hover, .nav-menu a.active { color: var(--bg-white); }
+.dropdown-wrapper { position: relative; }
+.dropdown-menu { position: absolute; top: 100%; left: 0; background: var(--bg-white); min-width: 240px; border-radius: 8px; box-shadow: var(--shadow-lg); opacity: 0; visibility: hidden; transition: all 0.2s ease; transform: translateY(10px); }
+.dropdown-wrapper:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown-menu a { display: block; padding: 12px 20px; color: var(--text-dark); border-bottom: 1px solid var(--border-subtle); }
+.dropdown-menu a:hover { background: var(--bg-main); color: var(--brand-blue); }
+
+/* =========================================
+   4. BUTTONS
+========================================= */
+.btn-primary { background: var(--brand-blue); color: white; padding: 14px 32px; border-radius: 6px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; }
+.btn-primary:hover { background: #1e40af; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(29, 78, 216, 0.4); }
+.btn-secondary { background: transparent; color: var(--text-light); padding: 14px 32px; border-radius: 6px; font-weight: 600; border: 2px solid var(--text-light); cursor: pointer; transition: 0.3s; }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+/* =========================================
+   5. PRODUCT HERO SECTION
+========================================= */
+.product-hero { background: linear-gradient(135deg, var(--bg-midnight) 0%, var(--bg-slate) 100%); padding: 100px 8% 80px; text-align: center; overflow: hidden; position: relative; }
+.hero-content { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+.trust-badge { background: var(--badge-bg); color: var(--badge-text); padding: 8px 18px; border-radius: 30px; font-size: 0.85rem; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 25px; border: 1px solid rgba(45, 212, 191, 0.3); }
+.trust-badge .dot { width: 8px; height: 8px; background: var(--badge-text); border-radius: 50%; box-shadow: 0 0 8px var(--badge-text); }
+.product-hero h1 { font-size: 4rem; color: var(--text-light); line-height: 1.1; margin-bottom: 24px; font-weight: 800; letter-spacing: -1px; }
+.text-gradient { color: #38bdf8; /* Soft blue to fit tech/apps */ }
+.product-hero p { font-size: 1.25rem; color: #94a3b8; max-width: 750px; margin-bottom: 40px; line-height: 1.8; }
+.hero-actions { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+/* =========================================
+   6. FEATURES GRID
+========================================= */
+.features-section { padding: 100px 8%; background: var(--bg-main); }
+.section-header { text-align: center; margin-bottom: 60px; max-width: 700px; margin-inline: auto; }
+.section-header h2 { font-size: 2.5rem; color: var(--text-dark); margin-bottom: 15px; font-weight: 800; }
+.section-header p { font-size: 1.1rem; color: var(--text-muted); }
+.header-underline { width: 60px; height: 5px; background: var(--brand-teal); margin: 20px auto; border-radius: 3px; }
+
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.feature-card { background: var(--bg-white); padding: 40px 30px; border-radius: 12px; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-sm); transition: 0.3s; }
+.feature-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: var(--brand-teal); }
+.icon-circle { width: 60px; height: 60px; background: var(--brand-teal-light); color: var(--brand-teal); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 20px; }
+.feature-card h3 { font-size: 1.3rem; color: var(--text-dark); margin-bottom: 15px; font-weight: 700; }
+.feature-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+
+/* =========================================
+   7. DEEP DIVE DETAILS
+========================================= */
+.details-section { padding: 60px 8% 100px; background: var(--bg-white); }
+.detail-row { display: flex; align-items: center; gap: 60px; margin-bottom: 100px; }
+.detail-row.reverse { flex-direction: row-reverse; }
+
+.detail-content { flex: 1; }
+.detail-content h3 { font-size: 2rem; color: var(--text-dark); margin-bottom: 25px; font-weight: 800; letter-spacing: -0.5px; }
+.detail-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 25px; line-height: 1.8; }
+
+.feature-list { list-style: none; }
+.feature-list li { font-size: 1.05rem; color: var(--text-dark); margin-bottom: 12px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+.feature-list li::before { color: var(--brand-teal); font-weight: bold; }
+
+.detail-graphic { flex: 1; display: flex; justify-content: center; }
+.mockup-placeholder { width: 100%; height: 350px; background: var(--bg-main); border-radius: 16px; border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-weight: 600; font-size: 1.2rem; box-shadow: var(--shadow-lg); text-align: center; padding: 20px; }
+.mockup-placeholder.security { background: var(--bg-midnight); color: var(--text-light); border-color: var(--brand-teal); }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .detail-row, .detail-row.reverse { flex-direction: column; text-align: center; gap: 40px; }
+    .feature-list li { justify-content: center; }
+    .product-hero h1 { font-size: 2.8rem; }
+}
